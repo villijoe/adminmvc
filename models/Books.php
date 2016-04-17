@@ -28,6 +28,7 @@ class News
             $newsList[$i]['writer'] = $row['writer'];
             $newsList[$i]['total_pages'] = $row['total_pages'];
             $newsList[$i]['reading_pages'] = $row['reading_pages'];
+            $newsList[$i]['reading'] = $row['reading'];
             $newsList[$i]['start_date'] = $row['start_date'];
             $newsList[$i]['end_date'] = $row['end_date'];
             $i++;

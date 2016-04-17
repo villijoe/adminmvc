@@ -1,6 +1,5 @@
 <?php
 return array(
-    'news/([0-9]+)' => 'news/view/$1',
-    'news' => 'news/index',
-    'products' => 'products/list',
+    'books/([0-9]+)' => 'books/view/$1',
+    'books' => 'books/index',
 );

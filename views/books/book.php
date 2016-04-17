@@ -11,7 +11,7 @@
         <td><?php echo $newsItem['total_pages']; ?></td>
         <td><?php echo $newsItem['reading_pages']; ?></td>
     </tr>
-        <tr><td colspan="4"><a href="<?php echo '../news/'; ?>">Вернуться ко всем новостям</a></td></tr>
+        <tr><td colspan="4"><a href="<?php echo '../books/'; ?>">Вернуться ко всем книгам</a></td></tr>
 </table>
 </body>
 </html>

@@ -1,15 +1,15 @@
 <?php
 
-include_once ROOT . '/models/News.php';
+include_once ROOT . '/models/Books.php';
 
-class NewsController
+class BooksController
 {
     public function actionIndex()
     {
         $newsList = array();
         $newsList = News::getNewsList();
 
-        require_once(ROOT . '/views/news/index.php');
+        require_once(ROOT . '/views/books/index.php');
 
         return true;
     }
@@ -19,7 +19,7 @@ class NewsController
         if ($id) {
             $newsItem = News::getNewsItemById($id);
 
-            require_once(ROOT . '/views/news/book.php');
+            require_once(ROOT . '/views/books/book.php');
 
 
         }
