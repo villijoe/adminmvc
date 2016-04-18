@@ -6,15 +6,10 @@
  * Date: 16.04.2016
  * Time: 16:42
  */
-class News
+class Books
 {
     public static function getNewsList()
     {
-//        $host = 'localhost';
-//        $dbname = 'adminmylife';
-//        $user = 'root';
-//        $password = '';
-//        $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
         $db = Db::getConnection();
 
         $newsList = array();
@@ -42,11 +37,7 @@ class News
         $id = intval($id);
 
         if ($id) {
-//            $host = 'localhost';
-//            $dbname = 'adminmylife';
-//            $user = 'root';
-//            $password = '';
-//            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+
             $db = Db::getConnection();
 
             $result = $db->query('SELECT * FROM books WHERE id_book=' . $id);

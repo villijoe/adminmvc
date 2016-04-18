@@ -7,7 +7,7 @@ class BooksController
     public function actionIndex()
     {
         $newsList = array();
-        $newsList = News::getNewsList();
+        $newsList = Books::getNewsList();
 
         require_once(ROOT . '/views/books/index.php');
 
@@ -17,7 +17,7 @@ class BooksController
     public function actionView($id)
     {
         if ($id) {
-            $newsItem = News::getNewsItemById($id);
+            $newsItem = Books::getNewsItemById($id);
 
             require_once(ROOT . '/views/books/book.php');
 

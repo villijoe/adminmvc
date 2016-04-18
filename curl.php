@@ -2,26 +2,39 @@
 
 require_once 'vendor/autoload.php';
 
-$ch = curl_init( 'http://biol.com.ua/rus/product/84');
+/**
+ * @return mixed
+ */
+function curl_local($string)
+{
+    $ch = curl_init($string);
 
-curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-$html = curl_exec( $ch );
+    $html = curl_exec($ch);
 
-curl_close( $ch );
+    curl_close($ch);
+    return $html;
+}
 
-//print_r( $html );
+$pan = curl_local('http://biol.com.ua/rus/product/84');
+$cap = curl_local('http://biol.com.ua/rus/product/114');
 
-//$html = file_get_contents( 'http://pogoda.yandex.ru' );
+/**
+ * @param $html
+ */
+function parse_local($html, $attr)
+{
+    $page = phpQuery::newDocument($html);
 
-phpQuery::newDocument( $html );
+    $title = pq('title', $page)->html();
 
-$title = pq( 'title' )->html();
+    $price = pq($attr, $page);
 
-$price = pq( '.product-param tr.even td > b' );
+    echo $title . ' - ' . $price;
 
-echo $price;
+    phpQuery::unloadDocuments($page);
+}
 
-echo $title;
-
-phpQuery::unloadDocuments();
+parse_local($pan, '.product-param tr.even td > b');
+parse_local($cap, '.product-param tr td > b');
