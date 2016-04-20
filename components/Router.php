@@ -12,7 +12,7 @@ class Router
 
     public function __construct()
     {
-        $routesPath = ROOT.'/config/routes.php';
+        $routesPath = ROOT . '/config/routes.php';
         $this->routes = include($routesPath);
     }
 
@@ -30,13 +30,16 @@ class Router
         $uri = $this->getURI();
 
         // проверить наличие такого запроса в routes.php
-        foreach ($this->routes as $uriPattern => $path){
+        foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $uri)) {
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
                 $segments = explode('/', $internalRoute);
-                array_shift($segments);
-                $controllerName = ucfirst(array_shift($segments)).'Controller';
-                $actionName = 'action'.ucfirst(array_shift($segments));
+                if ($segments[0] == 'adminmvc') {
+                    array_shift($segments);
+                }
+                //print_r($segments);
+                $controllerName = ucfirst(array_shift($segments)) . 'Controller';
+                $actionName = 'action' . ucfirst(array_shift($segments));
                 $parameters = $segments;
 
                 $controllerFile = ROOT . '/controllers/' . $controllerName . '.php';

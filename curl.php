@@ -2,10 +2,11 @@
 
 require_once 'vendor/autoload.php';
 
+
 /**
- * @return mixed
+ * @param $string , $attr
  */
-function curl_local($string)
+function parse_local($string, $attr)
 {
     $ch = curl_init($string);
 
@@ -14,27 +15,18 @@ function curl_local($string)
     $html = curl_exec($ch);
 
     curl_close($ch);
-    return $html;
-}
 
-$pan = curl_local('http://biol.com.ua/rus/product/84');
-$cap = curl_local('http://biol.com.ua/rus/product/114');
-
-/**
- * @param $html
- */
-function parse_local($html, $attr)
-{
     $page = phpQuery::newDocument($html);
 
     $title = pq('title', $page)->html();
 
     $price = pq($attr, $page);
 
-    echo $title . ' - ' . $price;
+    echo $title . ' - ' . $price . '<br />';
 
     phpQuery::unloadDocuments($page);
 }
 
-parse_local($pan, '.product-param tr.even td > b');
-parse_local($cap, '.product-param tr td > b');
+parse_local('http://biol.com.ua/rus/product/84', '.product-param tr.even td > b');
+parse_local('http://biol.com.ua/rus/product/114', '.product-param tr td > b');
+parse_local('http://yoyo.ua/yoyofactory/yoyofactory-prime', 'span#productPrice');

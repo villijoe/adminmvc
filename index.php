@@ -18,3 +18,5 @@ require_once(ROOT.'/components/Db.php');
 // вызов Router
 $router = new Router();
 $router->run();
+
+?>

@@ -8,31 +8,31 @@
  */
 class Books
 {
-    public static function getNewsList()
+    public static function getBooksList()
     {
         $db = Db::getConnection();
 
-        $newsList = array();
+        $booksList = array();
 
         $result = $db->query('SELECT * FROM books');
 
         $i = 0;
         while($row = $result->fetch()) {
-            $newsList[$i]['id_book'] = $row['id_book'];
-            $newsList[$i]['title'] = $row['title'];
-            $newsList[$i]['writer'] = $row['writer'];
-            $newsList[$i]['total_pages'] = $row['total_pages'];
-            $newsList[$i]['reading_pages'] = $row['reading_pages'];
-            $newsList[$i]['reading'] = $row['reading'];
-            $newsList[$i]['start_date'] = $row['start_date'];
-            $newsList[$i]['end_date'] = $row['end_date'];
+            $booksList[$i]['id_book'] = $row['id_book'];
+            $booksList[$i]['title'] = $row['title'];
+            $booksList[$i]['writer'] = $row['writer'];
+            $booksList[$i]['total_pages'] = $row['total_pages'];
+            $booksList[$i]['reading_pages'] = $row['reading_pages'];
+            $booksList[$i]['reading'] = $row['reading'];
+            $booksList[$i]['start_date'] = $row['start_date'];
+            $booksList[$i]['end_date'] = $row['end_date'];
             $i++;
         }
 
-        return $newsList;
+        return $booksList;
     }
 
-    public static function getNewsItemById($id)
+    public static function getBooksItemById($id)
     {
         $id = intval($id);
 
@@ -44,8 +44,32 @@ class Books
 
             $result->setFetchMode(PDO::FETCH_ASSOC);
 
-            $newsItem = $result->fetch();
-            return $newsItem;
+            $booksItem = $result->fetch();
+            return $booksItem;
         }
+    }
+
+    public static function getFinishedBooks()
+    {
+        $db = Db::getConnection();
+
+        $booksFinishedList = array();
+
+        $result = $db->query('SELECT * FROM books WHERE reading=TRUE');
+
+        $i = 0;
+        while($row = $result->fetch()) {
+            $booksFinishedList[$i]['id_book'] = $row['id_book'];
+            $booksFinishedList[$i]['title'] = $row['title'];
+            $booksFinishedList[$i]['writer'] = $row['writer'];
+            $booksFinishedList[$i]['total_pages'] = $row['total_pages'];
+            $booksFinishedList[$i]['reading_pages'] = $row['reading_pages'];
+            $booksFinishedList[$i]['reading'] = $row['reading'];
+            $booksFinishedList[$i]['start_date'] = $row['start_date'];
+            $booksFinishedList[$i]['end_date'] = $row['end_date'];
+            $i++;
+        }
+
+        return $booksFinishedList;
     }
 }

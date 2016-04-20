@@ -6,10 +6,10 @@ class BooksController
 {
     public function actionIndex()
     {
-        $newsList = array();
-        $newsList = Books::getNewsList();
+        $booksList = array();
+        $booksList = Books::getBooksList();
 
-        require_once(ROOT . '/views/books/index.php');
+        require_once(ROOT . '/views/book/index.php');
 
         return true;
     }
@@ -17,12 +17,21 @@ class BooksController
     public function actionView($id)
     {
         if ($id) {
-            $newsItem = Books::getNewsItemById($id);
+            $booksItem = Books::getBooksItemById($id);
 
-            require_once(ROOT . '/views/books/book.php');
+            require_once(ROOT . '/views/book/book.php');
 
 
         }
+
+        return true;
+    }
+
+    public function actionFinished()
+    {
+        $booksFinishedList = Books::getFinishedBooks();
+
+        require_once(ROOT . '/views/book/finished.php');
 
         return true;
     }
