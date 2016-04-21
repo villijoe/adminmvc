@@ -72,4 +72,28 @@ class Books
 
         return $booksFinishedList;
     }
+
+    public static function getProcessBooks()
+    {
+        $db = Db::getConnection();
+
+        $booksProcessList = array();
+
+        $result = $db->query('SELECT * FROM books WHERE reading=FALSE');
+
+        $i = 0;
+        while($row = $result->fetch()) {
+            $booksProcessList[$i]['id_book'] = $row['id_book'];
+            $booksProcessList[$i]['title'] = $row['title'];
+            $booksProcessList[$i]['writer'] = $row['writer'];
+            $booksProcessList[$i]['total_pages'] = $row['total_pages'];
+            $booksProcessList[$i]['reading_pages'] = $row['reading_pages'];
+            $booksProcessList[$i]['reading'] = $row['reading'];
+            $booksProcessList[$i]['start_date'] = $row['start_date'];
+            $booksProcessList[$i]['end_date'] = $row['end_date'];
+            $i++;
+        }
+
+        return $booksProcessList;
+    }
 }

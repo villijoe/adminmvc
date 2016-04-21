@@ -1,9 +1,10 @@
 
 
-a {  }
+a { display: inline-block; }
 a:visited, a:link { color: inherit; }
 .red { background-color: #FF6D6D; }
 .green { background-color: #72F48E; }
 table { border-collapse:collapse; margin-top: 20px; border: 1px solid black; }
 td { padding: 5px; width: 150px; }
 .btn { padding: 10px; text-decoration: none; background-color: cornflowerblue; }
+.main_link { height: 50px; }

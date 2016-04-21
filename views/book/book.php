@@ -1,4 +1,4 @@
-<?php require_once(ROOT . "/views/layouts/header.php"); ?>
+<?php $title = $booksItem['title']; require_once(ROOT . "/views/layouts/header.php"); ?>
 <a href="../">Main</a>
 <table>
     <tr>

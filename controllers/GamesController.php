@@ -26,4 +26,22 @@ class GamesController
 
         return true;
     }
+
+    public function actionFinished()
+    {
+        $gamesFinishedList = Games::getFinishedGames();
+
+        require_once(ROOT . '/views/games/finished.php');
+
+        return true;
+    }
+
+    public function actionProcess()
+    {
+        $gamesProcessList = Games::getProcessGames();
+
+        require_once(ROOT . '/views/games/process.php');
+
+        return true;
+    }
 }

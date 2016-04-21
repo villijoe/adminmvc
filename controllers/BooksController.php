@@ -35,4 +35,13 @@ class BooksController
 
         return true;
     }
+
+    public function actionProcess()
+    {
+        $booksProcessList = Books::getProcessBooks();
+
+        require_once(ROOT . '/views/book/process.php');
+
+        return true;
+    }
 }

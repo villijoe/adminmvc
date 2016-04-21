@@ -48,4 +48,52 @@ class Games
             return $gamesItem;
         }
     }
+
+    public static function getFinishedGames()
+    {
+        $db = Db::getConnection();
+
+        $gamesFinishedList = array();
+
+        $result = $db->query('SELECT * FROM games WHERE finished=TRUE');
+
+        $i = 0;
+        while($row = $result->fetch()) {
+            $gamesFinishedList[$i]['id_game'] = $row['id_game'];
+            $gamesFinishedList[$i]['title'] = $row['title'];
+            $gamesFinishedList[$i]['company'] = $row['company'];
+            $gamesFinishedList[$i]['total_chapters'] = $row['total_chapters'];
+            $gamesFinishedList[$i]['finished_chapters'] = $row['finished_chapters'];
+            $gamesFinishedList[$i]['finished'] = $row['finished'];
+            $gamesFinishedList[$i]['start_date'] = $row['start_date'];
+            $gamesFinishedList[$i]['end_date'] = $row['end_date'];
+            $i++;
+        }
+
+        return $gamesFinishedList;
+    }
+
+    public static function getProcessGames()
+    {
+        $db = Db::getConnection();
+
+        $gamesProcessList = array();
+
+        $result = $db->query('SELECT * FROM games WHERE finished=FALSE');
+
+        $i = 0;
+        while($row = $result->fetch()) {
+            $gamesProcessList[$i]['id_game'] = $row['id_game'];
+            $gamesProcessList[$i]['title'] = $row['title'];
+            $gamesProcessList[$i]['company'] = $row['company'];
+            $gamesProcessList[$i]['total_chapters'] = $row['total_chapters'];
+            $gamesProcessList[$i]['finished_chapters'] = $row['finished_chapters'];
+            $gamesProcessList[$i]['finished'] = $row['finished'];
+            $gamesProcessList[$i]['start_date'] = $row['start_date'];
+            $gamesProcessList[$i]['end_date'] = $row['end_date'];
+            $i++;
+        }
+
+        return $gamesProcessList;
+    }
 }

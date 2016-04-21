@@ -1,16 +1,15 @@
-<?php $title = 'All Games'; require_once(ROOT . "/views/layouts/header.php"); ?>
+<?php $title = 'All Process Games'; require_once(ROOT . "/views/layouts/header.php"); ?>
 <a class="btn" href="http://127.0.0.1/adminmvc/games/finished">All Finished Games</a>
-<a class="btn" href="http://127.0.0.1/adminmvc/games/process">All Process Games</a>
-    <table>
-        <tr>
-            <td>Название</td>
-            <td>Компания</td>
-            <td>Общее количество глав</td>
-            <td>Кол. пройденных глав</td>
-            <td>Дата старта</td>
-            <td>Дата конца</td>
-        </tr>
-    <?php foreach ($gamesList as $gamesItem):?>
+<table>
+    <tr>
+        <td>Название</td>
+        <td>Автор</td>
+        <td>Общее количество стр.</td>
+        <td>Кол. прочитанных стр.</td>
+        <td>Дата старта</td>
+        <td>Дата конца</td>
+    </tr>
+    <?php foreach ($gamesProcessList as $gamesItem):?>
         <?php $gamesItem['finished'] ? $style = 'red' : $style = 'green'; ?>
         <tr class="<?php echo $style; ?>">
             <td><a href="<?php echo 'http://127.0.0.1/adminmvc/games/' . $gamesItem['id_game']; ?>"><?php echo $gamesItem['title']; ?></a></td>
@@ -21,4 +20,4 @@
             <td><?php echo $gamesItem['end_date']; ?></td>
         </tr>
     <?php endforeach;?>
-    </table>
+</table>
