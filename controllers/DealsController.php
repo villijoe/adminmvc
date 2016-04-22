@@ -1,10 +1,11 @@
 <?php
 
 include_once ROOT . '/models/Deals.php';
+include_once ROOT . '/controllers/ParentController.php';
 
-class DealsController
+class DealsController extends ParentController
 {
-    public function actionIndex()
+    /*public function actionIndex()
     {
         $dealsList = array();
         $dealsList = Deals::getDealsList();
@@ -43,15 +44,15 @@ class DealsController
         require_once(ROOT . '/views/deals/process.php');
 
         return true;
-    }
+    }*/
 
     public function actionAdd()
     {
         if (isset($_POST['title']) && !empty($_POST['title'])) {
             Deals::getAddDeal();
-            header("Location: http://127.0.0.1/adminmvc/deals/process");
+            header("Location: http://127.0.0.1/adminmvc/deal/process");
         } else {
-            require_once(ROOT . '/views/deals/add.php');
+            require_once(ROOT . '/views/deal/add.php');
         }
 
         return true;

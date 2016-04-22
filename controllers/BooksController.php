@@ -1,13 +1,19 @@
 <?php
 
 include_once ROOT . '/models/Books.php';
+include_once ROOT . '/controllers/ParentController.php';
 
-class BooksController
+class BooksController extends ParentController
 {
-    public function actionIndex()
+    /**
+     * @desc func index page books
+     * @return bool
+     */
+    /*public function actionIndex()
     {
         $booksList = array();
-        $booksList = Books::getBooksList();
+        $model_name = str_replace('Controller', '', get_class());
+        $booksList = $model_name::getBooksList();
 
         require_once(ROOT . '/views/book/index.php');
 
@@ -25,23 +31,23 @@ class BooksController
         }
 
         return true;
-    }
+    }*/
 
-    public function actionFinished()
+    /*public function actionFinished()
     {
         $booksFinishedList = Books::getFinishedBooks();
 
         require_once(ROOT . '/views/book/finished.php');
 
         return true;
-    }
+    }*/
 
-    public function actionProcess()
+/*    public function actionProcess()
     {
         $booksProcessList = Books::getProcessBooks();
 
         require_once(ROOT . '/views/book/process.php');
 
         return true;
-    }
+    }*/
 }

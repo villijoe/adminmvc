@@ -10,15 +10,15 @@
             <td>Дата старта</td>
             <td>Дата конца</td>
         </tr>
-    <?php foreach ($booksList as $booksItem):?>
-        <?php $booksItem['reading'] ? $style = 'red' : $style = 'green'; ?>
+    <?php foreach ($list as $item):?>
+        <?php $item['reading'] ? $style = 'red' : $style = 'green'; ?>
         <tr class="<?php echo $style; ?>">
-            <td><a href="<?php echo 'http://127.0.0.1/adminmvc/books/' . $booksItem['id_book']; ?>"><?php echo $booksItem['title']; ?></a></td>
-            <td><?php echo $booksItem['writer']; ?></td>
-            <td><?php echo $booksItem['total_pages']; ?></td>
-            <td><?php echo $booksItem['reading_pages']; ?></td>
-            <td><?php echo $booksItem['start_date']; ?></td>
-            <td><?php echo $booksItem['end_date']; ?></td>
+            <td><a href="<?php echo 'http://127.0.0.1/adminmvc/books/' . $item['id_book']; ?>"><?php echo $item['title']; ?></a></td>
+            <td><?php echo $item['writer']; ?></td>
+            <td><?php echo $item['total_pages']; ?></td>
+            <td><?php echo $item['reading_pages']; ?></td>
+            <td><?php echo $item['start_date']; ?></td>
+            <td><?php echo $item['end_date']; ?></td>
         </tr>
     <?php endforeach;?>
     </table>

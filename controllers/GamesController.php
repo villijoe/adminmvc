@@ -1,15 +1,16 @@
 <?php
 
 include_once ROOT . '/models/Games.php';
+include_once ROOT . '/controllers/ParentController.php';
 
-class GamesController
+class GamesController extends ParentController
 {
-    public function actionIndex()
+    /*public function actionIndex()
     {
         $gamesList = array();
         $gamesList = Games::getGamesList();
 
-        require_once(ROOT . '/views/games/index.php');
+        require_once(ROOT . '/views/game/index.php');
 
         return true;
     }
@@ -19,7 +20,7 @@ class GamesController
         if ($id) {
             $gamesItem = Games::getGamesItemById($id);
 
-            require_once(ROOT . '/views/games/game.php');
+            require_once(ROOT . '/views/game/game.php');
 
 
         }
@@ -31,7 +32,7 @@ class GamesController
     {
         $gamesFinishedList = Games::getFinishedGames();
 
-        require_once(ROOT . '/views/games/finished.php');
+        require_once(ROOT . '/views/game/finished.php');
 
         return true;
     }
@@ -40,8 +41,8 @@ class GamesController
     {
         $gamesProcessList = Games::getProcessGames();
 
-        require_once(ROOT . '/views/games/process.php');
+        require_once(ROOT . '/views/game/process.php');
 
         return true;
-    }
+    }*/
 }

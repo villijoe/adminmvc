@@ -10,14 +10,14 @@
             <td>Дата старта</td>
             <td>Дата конца</td>
         </tr>
-    <?php foreach ($dealsList as $dealsItem):?>
-        <?php $dealsItem['finished'] ? $style = 'red' : $style = 'green'; ?>
+    <?php foreach ($list as $item):?>
+        <?php $item['finished'] ? $style = 'red' : $style = 'green'; ?>
         <tr class="<?php echo $style; ?>">
-            <td><a href="<?php echo 'http://127.0.0.1/adminmvc/deals/' . $dealsItem['id_deal']; ?>"><?php echo $dealsItem['title']; ?></a></td>
-            <td><?php echo $dealsItem['description']; ?></td>
-            <td><?php echo $dealsItem['tasks']; ?></td>
-            <td><?php echo $dealsItem['start_date']; ?></td>
-            <td><?php echo $dealsItem['end_date']; ?></td>
+            <td><a href="<?php echo 'http://127.0.0.1/adminmvc/deals/' . $item['id_deal']; ?>"><?php echo $item['title']; ?></a></td>
+            <td><?php echo $item['description']; ?></td>
+            <td><?php echo $item['tasks']; ?></td>
+            <td><?php echo $item['start_date']; ?></td>
+            <td><?php echo $item['end_date']; ?></td>
         </tr>
     <?php endforeach;?>
     </table>

@@ -10,15 +10,15 @@
             <td>Дата старта</td>
             <td>Дата конца</td>
         </tr>
-    <?php foreach ($gamesList as $gamesItem):?>
-        <?php $gamesItem['finished'] ? $style = 'red' : $style = 'green'; ?>
+    <?php foreach ($list as $item):?>
+        <?php $item['finished'] ? $style = 'red' : $style = 'green'; ?>
         <tr class="<?php echo $style; ?>">
-            <td><a href="<?php echo 'http://127.0.0.1/adminmvc/games/' . $gamesItem['id_game']; ?>"><?php echo $gamesItem['title']; ?></a></td>
-            <td><?php echo $gamesItem['company']; ?></td>
-            <td><?php echo $gamesItem['total_chapters']; ?></td>
-            <td><?php echo $gamesItem['finished_chapters']; ?></td>
-            <td><?php echo $gamesItem['start_date']; ?></td>
-            <td><?php echo $gamesItem['end_date']; ?></td>
+            <td><a href="<?php echo 'http://127.0.0.1/adminmvc/game/' . $item['id_game']; ?>"><?php echo $item['title']; ?></a></td>
+            <td><?php echo $item['company']; ?></td>
+            <td><?php echo $item['total_chapters']; ?></td>
+            <td><?php echo $item['finished_chapters']; ?></td>
+            <td><?php echo $item['start_date']; ?></td>
+            <td><?php echo $item['end_date']; ?></td>
         </tr>
     <?php endforeach;?>
     </table>
