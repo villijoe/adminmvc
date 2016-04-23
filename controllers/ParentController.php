@@ -18,7 +18,7 @@ class ParentController
     public function actionIndex()
     {
         $this->list = array();
-        $method_name = 'get' . $this->model_name . 'List';
+        $method_name = 'getList';
         $list = call_user_func($this->model_name . '::' . $method_name);
 
         require_once(ROOT . '/views/' . $this->folder_view_name . '/index.php');
@@ -29,7 +29,7 @@ class ParentController
     public function actionView($id)
     {
         if ($id) {
-            $method_name = 'get' . $this->model_name . 'ItemById';
+            $method_name = 'getItemById';
             $item = call_user_func($this->model_name . '::' . $method_name, $id);
 
             require_once(ROOT . '/views/' . $this->folder_view_name . '/' . $this->folder_view_name . '.php');
@@ -40,7 +40,7 @@ class ParentController
 
     public function actionFinished()
     {
-        $method_name = 'get' . str_replace('action', '', __FUNCTION__) . $this->model_name;
+        $method_name = 'get' . str_replace('action', '', __FUNCTION__);
         $list = call_user_func($this->model_name . '::' . $method_name);
 
         require_once(ROOT . '/views/' . $this->folder_view_name . '/finished.php');
@@ -49,7 +49,7 @@ class ParentController
     }
     public function actionProcess()
     {
-        $method_name = 'get' . str_replace('action', '', __FUNCTION__) . $this->model_name;
+        $method_name = 'get' . str_replace('action', '', __FUNCTION__);
         $list = call_user_func($this->model_name . '::' . $method_name);
 
         require_once(ROOT . '/views/' . $this->folder_view_name . '/process.php');

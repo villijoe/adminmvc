@@ -2,7 +2,7 @@
 <a class="btn" href="http://127.0.0.1/adminmvc/books/finished">All Finished Books</a>
 <?php require_once('head_table.php'); ?>
     <?php foreach ($list as $item):?>
-        <?php $item['reading'] ? $style = 'red' : $style = 'green'; ?>
+        <?php $item['finished'] ? $style = 'red' : $style = 'green'; ?>
         <tr class="<?php echo $style; ?>">
             <td><a href="<?php echo 'http://127.0.0.1/adminmvc/books/' . $item['id_book']; ?>"><?php echo $item['title']; ?></a></td>
             <td><?php echo $item['writer']; ?></td>

@@ -38,6 +38,7 @@ class ParentModel
     public static function getItemById($id)
     {
         $id = intval($id);
+        self::init();
 
         if ($id) {
 
@@ -55,6 +56,7 @@ class ParentModel
     public static function getFinished()
     {
         $db = Db::getConnection();
+        self::init();
 
         $list = array();
 
@@ -72,6 +74,7 @@ class ParentModel
     public static function getProcess()
     {
         $db = Db::getConnection();
+        self::init();
 
         $list = array();
 
