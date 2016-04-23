@@ -46,15 +46,15 @@ class DealsController extends ParentController
         return true;
     }*/
 
-    public function actionAdd()
+    /*public function actionAdd()
     {
         if (isset($_POST['title']) && !empty($_POST['title'])) {
             Deals::getAddDeal();
-            header("Location: http://127.0.0.1/adminmvc/deal/process");
+            header("Location: http://127.0.0.1/adminmvc/deals/process");
         } else {
             require_once(ROOT . '/views/deal/add.php');
         }
 
         return true;
-    }
+    }*/
 }

@@ -1,14 +1,6 @@
 <?php $title = 'All Process Games'; require_once(ROOT . "/views/layouts/header.php"); ?>
 <a class="btn" href="http://127.0.0.1/adminmvc/games/finished">All Finished Games</a>
-<table>
-    <tr>
-        <td>Название</td>
-        <td>Автор</td>
-        <td>Общее количество стр.</td>
-        <td>Кол. прочитанных стр.</td>
-        <td>Дата старта</td>
-        <td>Дата конца</td>
-    </tr>
+<?php require_once('head_table.php'); ?>
     <?php foreach ($list as $item):?>
         <?php $item['finished'] ? $style = 'red' : $style = 'green'; ?>
         <tr class="<?php echo $style; ?>">

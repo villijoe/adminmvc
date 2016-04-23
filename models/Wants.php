@@ -23,6 +23,7 @@ class Wants
             $wantsList[$i]['company'] = $row['company'];
             $wantsList[$i]['price'] = $row['price'];
             $wantsList[$i]['finished'] = $row['finished'];
+            $wantsList[$i]['link'] = $row['link'];
             $i++;
         }
 
@@ -61,6 +62,7 @@ class Wants
             $wantsFinishedList[$i]['company'] = $row['company'];
             $wantsFinishedList[$i]['price'] = $row['price'];
             $wantsFinishedList[$i]['finished'] = $row['finished'];
+            $wantsFinishedList[$i]['link'] = $row['link'];
             $i++;
         }
 
@@ -82,6 +84,7 @@ class Wants
             $wantsProcessList[$i]['company'] = $row['company'];
             $wantsProcessList[$i]['price'] = $row['price'];
             $wantsProcessList[$i]['finished'] = $row['finished'];
+            $wantsProcessList[$i]['link'] = $row['link'];
             $i++;
         }
 
@@ -92,10 +95,11 @@ class Wants
     {
         $db = Db::getConnection();
         $finished = isset($_POST['finished']) ? $_POST['finished'] : 0;
-        $stmt = $db->prepare('INSERT INTO wants(title, company, price, finished) VALUES (?, ?, ?, ?)');
+        $stmt = $db->prepare('INSERT INTO wants(title, company, price, finished, link) VALUES (?, ?, ?, ?, ?)');
         $stmt->execute([$_POST['title'],
             $_POST['company'],
             $_POST['price'],
-            $finished]);
+            $finished,
+            $_POST['link']]);
     }
 }

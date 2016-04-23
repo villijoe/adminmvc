@@ -30,10 +30,12 @@ class ParentController
     {
         if ($id) {
             $method_name = 'get' . $this->model_name . 'ItemById';
-            $item = call_user_func($this->model_name . '::' . $method_name);
+            $item = call_user_func($this->model_name . '::' . $method_name, $id);
 
-            require_once(ROOT . '/views/' . $this->folder_view_name . '/book.php');
+            require_once(ROOT . '/views/' . $this->folder_view_name . '/' . $this->folder_view_name . '.php');
         }
+
+        return true;
     }
 
     public function actionFinished()
@@ -51,6 +53,18 @@ class ParentController
         $list = call_user_func($this->model_name . '::' . $method_name);
 
         require_once(ROOT . '/views/' . $this->folder_view_name . '/process.php');
+
+        return true;
+    }
+
+    public function actionAdd()
+    {
+        if (isset($_POST['title']) && !empty($_POST['title'])) {
+            call_user_func($this->model_name . '::' . 'getAdd' . substr($this->model_name, 0, -1));
+            header('Location: http://127.0.0.1/adminmvc/' . $this->folder_view_name . 's/process');
+        } else {
+            require_once(ROOT . '/views/' . $this->folder_view_name . '/add.php');
+        }
 
         return true;
     }

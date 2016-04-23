@@ -45,7 +45,7 @@ class WantsController extends ParentController
         return true;
     }*/
 
-    public function actionAdd()
+    /*public function actionAdd()
     {
         if (isset($_POST['title']) && !empty($_POST['title'])) {
             Wants::getAddWant();
@@ -55,5 +55,5 @@ class WantsController extends ParentController
         }
 
         return true;
-    }
+    }*/
 }

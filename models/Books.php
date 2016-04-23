@@ -18,14 +18,15 @@ class Books
 
         $i = 0;
         while($row = $result->fetch()) {
-            $booksList[$i]['id_book'] = $row['id_book'];
-            $booksList[$i]['title'] = $row['title'];
-            $booksList[$i]['writer'] = $row['writer'];
-            $booksList[$i]['total_pages'] = $row['total_pages'];
-            $booksList[$i]['reading_pages'] = $row['reading_pages'];
-            $booksList[$i]['reading'] = $row['reading'];
-            $booksList[$i]['start_date'] = $row['start_date'];
-            $booksList[$i]['end_date'] = $row['end_date'];
+//            $booksList[$i]['id_book'] = $row['id_book'];
+//            $booksList[$i]['title'] = $row['title'];
+//            $booksList[$i]['writer'] = $row['writer'];
+//            $booksList[$i]['total_pages'] = $row['total_pages'];
+//            $booksList[$i]['reading_pages'] = $row['reading_pages'];
+//            $booksList[$i]['reading'] = $row['reading'];
+//            $booksList[$i]['start_date'] = $row['start_date'];
+//            $booksList[$i]['end_date'] = $row['end_date'];
+            $booksList[$i] = $row;
             $i++;
         }
 
