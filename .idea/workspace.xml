@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04d9d50a-287d-4329-8016-14d1c1230199" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ParentController.php" afterPath="$PROJECT_DIR$/controllers/ParentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Books.php" afterPath="$PROJECT_DIR$/models/Books.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Deals.php" afterPath="$PROJECT_DIR$/models/Deals.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Games.php" afterPath="$PROJECT_DIR$/models/Games.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/ParentModel.php" afterPath="$PROJECT_DIR$/models/ParentModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Wants.php" afterPath="$PROJECT_DIR$/models/Wants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/book/finished.php" afterPath="$PROJECT_DIR$/views/book/finished.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/book/index.php" afterPath="$PROJECT_DIR$/views/book/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/book/process.php" afterPath="$PROJECT_DIR$/views/book/process.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/BooksController.php" afterPath="$PROJECT_DIR$/controllers/BooksController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/DealsController.php" afterPath="$PROJECT_DIR$/controllers/DealsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/GamesController.php" afterPath="$PROJECT_DIR$/controllers/GamesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/WantsController.php" afterPath="$PROJECT_DIR$/controllers/WantsController.php" />
     </list>
     <ignored path="adminmvc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,11 +58,7 @@
         <option value="$PROJECT_DIR$/views/wants/want.php" />
         <option value="$PROJECT_DIR$/views/wants/finished.php" />
         <option value="$PROJECT_DIR$/views/wants/process.php" />
-        <option value="$PROJECT_DIR$/controllers/BooksController.php" />
-        <option value="$PROJECT_DIR$/controllers/GamesController.php" />
         <option value="$PROJECT_DIR$/config/routes.php" />
-        <option value="$PROJECT_DIR$/controllers/DealsController.php" />
-        <option value="$PROJECT_DIR$/controllers/WantsController.php" />
         <option value="$PROJECT_DIR$/views/want/add.php" />
         <option value="$PROJECT_DIR$/views/want/head_table.php" />
         <option value="$PROJECT_DIR$/views/book/book.php" />
@@ -98,6 +88,10 @@
         <option value="$PROJECT_DIR$/models/Wants.php" />
         <option value="$PROJECT_DIR$/models/Games.php" />
         <option value="$PROJECT_DIR$/models/ParentModel.php" />
+        <option value="$PROJECT_DIR$/controllers/WantsController.php" />
+        <option value="$PROJECT_DIR$/controllers/GamesController.php" />
+        <option value="$PROJECT_DIR$/controllers/DealsController.php" />
+        <option value="$PROJECT_DIR$/controllers/BooksController.php" />
       </list>
     </option>
   </component>
@@ -331,6 +325,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -417,13 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/GamesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11921459">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/Router.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1921458">
@@ -435,27 +423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28611502">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/BooksController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="56" selection-start-line="2" selection-start-column="40" selection-end-line="3" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/DealsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47545582">
-          <caret line="43" column="55" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/WantsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.04908836">
-          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -713,6 +680,38 @@
             <marker date="1461399668098" expanded="true" signature="1251:1307" placeholder="SELECT * FRO..${self::$name_bd}..." />
             <marker date="1461399668098" expanded="true" signature="1617:1674" placeholder="SELECT * FRO..${self::$name_bd}..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/WantsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14305751">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/GamesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14305751">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/DealsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14305751">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/BooksController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14305751">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
