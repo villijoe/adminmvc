@@ -21,4 +21,20 @@ class Wants extends ParentModel
             $finished,
             $_POST['link']]);
     }
+
+    public static function getEditWant($id)
+    {
+        $db = Db::getConnection();
+        $finished = isset($_POST['finished']) ? 1 : 0;
+        $link = isset($_POST['link']) ? $_POST['link'] : 'http://127.0.0.1/adminmvc/wants/';
+        $stmt = $db->prepare('UPDATE wants SET title=?, company=?, price=?, finished=?, link=? WHERE id_want = ' . $id);
+        $stmt->execute([
+            $_POST['title'],
+            $_POST['company'],
+            $_POST['price'],
+            $finished,
+            $_POST['link']
+        ]);
+
+    }
 }

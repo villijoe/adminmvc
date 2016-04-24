@@ -8,6 +8,7 @@
         <td><?php echo $item['company']; ?></td>
         <td><?php echo $item['price']; ?></td>
         <td><a href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?>---></a></td>
+        <td><a href="<?php echo 'http://127.0.0.1/adminmvc/wants/edit/' . $item['id_want'] ?>">A</a></td>
     </tr>
         <tr><td colspan="4"><a href="http://127.0.0.1/adminmvc/wants/">Вернуться ко всем желаниям</a></td></tr>
 </table>

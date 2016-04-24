@@ -13,8 +13,8 @@ class ParentModel
 
     public static function init()
     {
-        self::$id_bd = str_replace(strtolower(get_called_class()), 0, -1);
         self::$name_bd = strtolower(get_called_class());
+        self::$id_bd = substr(self::$name_bd, 0, -1);
     }
 
     public static function getList()
@@ -44,7 +44,7 @@ class ParentModel
 
             $db = Db::getConnection();
 
-            $result = $db->query('SELECT * FROM ' . self::$name_bd . ' WHERE ' . self::$id_bd . '=' . $id);
+            $result = $db->query('SELECT * FROM ' . self::$name_bd . ' WHERE id_' . self::$id_bd . '=' . $id);
 
             $result->setFetchMode(PDO::FETCH_ASSOC);
 
