@@ -13,13 +13,11 @@ class Wants extends ParentModel
     public static function getAddWant()
     {
         $db = Db::getConnection();
-        $finished = isset($_POST['finished']) ? $_POST['finished'] : 0;
-        $stmt = $db->prepare('INSERT INTO wants(title, company, price, finished, link) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute([$_POST['title'],
-            $_POST['company'],
-            $_POST['price'],
-            $finished,
-            $_POST['link']]);
+        $_POST['finished'] = isset($_POST['finished']) ? $_POST['finished'] : 0;
+        $_POST['link'] = empty($_POST['link']) ? 'http://127.0.0.1/adminmvc/wants/' : $_POST['link'];
+        $keys = implode(', ', array_keys($_POST));
+        $stmt = $db->prepare('INSERT INTO wants(' . $keys . ') VALUES (?, ?, ?, ?)');
+        $stmt->execute(array_values($_POST));
     }
 
     public static function getEditWant($id)
@@ -33,7 +31,7 @@ class Wants extends ParentModel
             $_POST['company'],
             $_POST['price'],
             $finished,
-            $_POST['link']
+            $link
         ]);
 
     }

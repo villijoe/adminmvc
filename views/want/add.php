@@ -10,6 +10,6 @@
     <input type="number" name="price" id="price" />
     <p>Ссылка:</p>
     <input type="url" name="link" id="link" />
-    <p><input type="checkbox" name="finished" id="finished" /> Finished</p>
+    <p><input type="checkbox" name="finished" id="finished"  /> Finished</p>
     <input type="submit" />
 </form>
