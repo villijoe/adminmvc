@@ -60,7 +60,7 @@ class ParentController
     public function actionAdd()
     {
         if (isset($_POST['title']) && !empty($_POST['title'])) {
-            call_user_func($this->model_name . '::' . 'getAdd' . substr($this->model_name, 0, -1));
+            call_user_func($this->model_name . '::' . 'getAdd');
             header('Location: http://127.0.0.1/adminmvc/' . $this->folder_view_name . 's/process');
         } else {
             require_once(ROOT . '/views/' . $this->folder_view_name . '/add.php');
@@ -73,7 +73,7 @@ class ParentController
     {
         if ($id) {
             if (isset($_POST['edit'])) {
-                call_user_func($this->model_name . '::' . 'getEdit' . substr($this->model_name, 0, -1), $id);
+                call_user_func($this->model_name . '::' . 'getEdit', $id);
                 header('Location: http://127.0.0.1/adminmvc/' . $this->folder_view_name . 's/process');
             } else {
                 $method_name = 'getItemById';
@@ -84,5 +84,12 @@ class ParentController
         return true;
     }
 
+    public function actionDelete($id)
+    {
+        if ($id) {
+            call_user_func($this->model_name . '::' . 'getDelete', $id);
+            header('Location: http://127.0.0.1/adminmvc/' . $this->folder_view_name . 's/process');
+        }
+    }
 
 }

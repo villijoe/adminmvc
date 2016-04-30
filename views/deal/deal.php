@@ -10,6 +10,7 @@
         <td><?php echo $item['start_date']; ?></td>
         <td><?php echo $item['end_date']; ?></td>
         <td><a href="<?php echo 'http://127.0.0.1/adminmvc/deals/edit/' . $item['id_deal']; ?>">A</a></td>
+        <td><a href="<?php echo 'http://127.0.0.1/adminmvc/deals/delete/' . $item['id_deal']; ?>">X</a></td>
     </tr>
-        <tr><td colspan="5"><a href="http://127.0.0.1/adminmvc/deals/">Вернуться ко всем делам</a></td></tr>
+        <tr><td colspan="6"><a href="http://127.0.0.1/adminmvc/deals/">Вернуться ко всем делам</a></td></tr>
 </table>

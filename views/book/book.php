@@ -9,6 +9,7 @@
         <td><?php echo $item['reading_pages']; ?></td>
         <td><?php echo $item['total_pages']; ?></td>
         <td><a href="<?php echo 'http://127.0.0.1/adminmvc/books/edit/' . $item['id_book']; ?>">A</a></td>
+        <td><a href="<?php echo 'http://127.0.0.1/adminmvc/books/delete/' . $item['id_book']; ?>">X</a></td>
     </tr>
-    <tr><td colspan="5"><a href="http://127.0.0.1/adminmvc/books/">Вернуться ко всем книгам</a></td></tr>
+    <tr><td colspan="6"><a href="http://127.0.0.1/adminmvc/books/">Вернуться ко всем книгам</a></td></tr>
 </table>

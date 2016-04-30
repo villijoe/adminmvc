@@ -7,6 +7,7 @@
         <td>Дата старта</td>
         <td>Дата конца</td>
         <td>A</td>
+        <td>X</td>
     </tr>
     <?php foreach ($list as $item):?>
     <?php $item['finished'] ? $style = 'red' : $style = 'green'; ?>
@@ -18,6 +19,7 @@
         <td><?php echo $item['start_date']; ?></td>
         <td><?php echo $item['end_date']; ?></td>
         <td><a href="<?php echo 'http://127.0.0.1/adminmvc/books/edit/' . $item['id_book']; ?>">A</a></td>
+        <td><a href="<?php echo 'http://127.0.0.1/adminmvc/books/delete/' . $item['id_book']; ?>">X</a></td>
     </tr>
     <?php endforeach;?>
 </table>
