@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d3a945d6f209f8602a3e6a863fa486d7",
-    "content-hash": "e92a4b2d4999fe946b10edadbc901699",
+    "hash": "d060be245706fcd0fc44ae541421b5b2",
+    "content-hash": "6209249d5ef8157019d495f7c0e56476",
     "packages": [
         {
             "name": "coderockr/php-query",
@@ -55,6 +55,29 @@
                 "phpQuery"
             ],
             "time": "2016-02-05 16:04:06"
+        },
+        {
+            "name": "frameworks/jquery",
+            "version": "2.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/frameworks/jquery.git",
+                "reference": "ef9c4fe9fcb23914bba6ec6d32c556e4a38a0fd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/frameworks/jquery/zipball/ef9c4fe9fcb23914bba6ec6d32c556e4a38a0fd9",
+                "reference": "ef9c4fe9fcb23914bba6ec6d32c556e4a38a0fd9",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "time": "2015-10-09 00:55:51"
         }
     ],
     "packages-dev": [],

@@ -5,9 +5,9 @@
 <table>
     <tr>
         <td><?php echo $item['title']; ?></td>
-        <td><?php echo $item['company']; ?></td>
-        <td><?php echo $item['finished_chapters']; ?></td>
-        <td><?php echo $item['total_chapters']; ?></td>
+        <td><?php echo $item['creator']; ?></td>
+        <td><?php echo $item['finish']; ?></td>
+        <td><?php echo $item['total']; ?></td>
         <td><a href="<?php echo 'http://127.0.0.1/adminmvc/games/edit/' . $item['id_game']; ?>">A</a></td>
         <td><a href="<?php echo 'http://127.0.0.1/adminmvc/games/delete/' . $item['id_game']; ?>">X</a></td>
     </tr>

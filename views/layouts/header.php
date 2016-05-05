@@ -2,6 +2,7 @@
 <head>
     <title><?= $title; ?></title>
     <link rel="stylesheet" href="/adminmvc/template/css/style.css">
+    <script src="../vendor/frameworks/jquery/jquery.min.js"></script>
 </head>
 <body>
 <div class="main_link">

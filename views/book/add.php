@@ -5,11 +5,11 @@
     <p>Название книги:</p>
     <input type="text" name="title" id="title" autofocus />
     <p>Имя автора:</p>
-    <input type="text" name="writer" id="writer" />
-    <p>Общее кол. страниц:</p>
-    <input type="number" name="total_pages" id="total_pages" />
+    <input type="text" name="creator" id="creator" />
     <p>Количество прочитанных страниц:</p>
-    <input type="number" name="reading_pages" id="reading_pages" />
+    <input type="number" name="finish" id="finish" />
+    <p>Общее кол. страниц:</p>
+    <input type="number" name="total" id="total" />
     <p>Start Date:</p>
     <input type="date" name="start_date" id="start_date" />
     <p>End Date:</p>

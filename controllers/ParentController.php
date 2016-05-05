@@ -71,11 +71,12 @@ class ParentController
 
     public function actionEdit($id)
     {
+        //print_r($_POST);
         if ($id) {
             if (isset($_POST['edit'])) {
                 call_user_func($this->model_name . '::' . 'getEdit', $id);
-                header('Location: http://127.0.0.1/adminmvc/' . $this->folder_view_name . 's/process');
             } else {
+                echo 'hi';
                 $method_name = 'getItemById';
                 $item = call_user_func($this->model_name . '::' . $method_name, $id);
                 require_once(ROOT . '/views/' . $this->folder_view_name . '/edit.php');

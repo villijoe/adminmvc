@@ -49,5 +49,30 @@
             "lib",
             "phpQuery"
         ]
+    },
+    {
+        "name": "frameworks/jquery",
+        "version": "2.1.4",
+        "version_normalized": "2.1.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/frameworks/jquery.git",
+            "reference": "ef9c4fe9fcb23914bba6ec6d32c556e4a38a0fd9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/frameworks/jquery/zipball/ef9c4fe9fcb23914bba6ec6d32c556e4a38a0fd9",
+            "reference": "ef9c4fe9fcb23914bba6ec6d32c556e4a38a0fd9",
+            "shasum": ""
+        },
+        "time": "2015-10-09 00:55:51",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "jQuery JavaScript Library",
+        "homepage": "http://jquery.com"
     }
 ]

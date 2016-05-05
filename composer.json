@@ -1,5 +1,6 @@
 {
     "require": {
-        "coderockr/php-query": "dev-master"
+        "coderockr/php-query": "dev-master",
+        "frameworks/jquery": "^2.1"
     }
 }

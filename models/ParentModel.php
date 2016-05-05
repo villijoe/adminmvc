@@ -98,25 +98,38 @@ class ParentModel
         $_POST['start_date'] = (empty($_POST['start_date'])) ? '0000-00-00' : $_POST['start_date'];
         $_POST['end_date'] = (empty($_POST['end_date'])) ? '0000-00-00' : $_POST['end_date'];
 
+        // если добавляем want то удаляем переменные даты
+        if (isset($_POST['link'])) {
+            unset($_POST['start_date']);
+            unset($_POST['end_date']);
+        }
+
+        // если в post если переменная link и она пустая, то удалим его из массива
+        if (isset($_POST['link']) && empty($_POST['link'])) {
+            unset($_POST['link']);
+        }
+
         $keys = implode(', ', array_keys($_POST));
         $count = count($_POST);
         $arr = array();
         for ($i = 0; $i < $count; $i++) {
             array_push($arr, '?');
         }
-        print_r($arr);
+        //print_r($arr);
         $str = implode(', ', $arr);
-        echo $str;
-        echo $count;
+        //echo $str;
+        //echo $count;
+        echo $keys;
 
         $stmt = $db->prepare('INSERT INTO ' . self::$name_bd . '(' . $keys . ') VALUES (' . $str . ')');
         print_r($stmt);
-        print_r($_POST);
+
+        print_r(array_values($_POST));
         $stmt->execute(array_values($_POST)) or die('fuck');
 
     }
 
-    public static function getEdit($id)
+    /*public static function getEdit($id)
     {
         $db = Db::getConnection();
         self::init();
@@ -132,12 +145,27 @@ class ParentModel
         unset($_POST['edit']);
         $update = array_map('add', array_keys($_POST));
         $keys = implode(', ', $update);
-        print_r($keys);
+        //print_r($keys);
 
         $stmt = $db->prepare('UPDATE ' . self::$name_bd . ' SET ' . $keys . ' WHERE id_' . self::$id_bd . ' = ' . $id);
         //print_r($stmt);
         print_r($_POST);
         $stmt->execute(array_values($_POST)) or die('fuck');
+
+    }*/
+
+    public static function getEdit($id)
+    {
+        $db = Db::getConnection();
+        self::init();
+
+        $stmt = $db->prepare('UPDATE ' . self::$name_bd . ' SET ' . $_POST['id_note'] . '=? WHERE id_' . self::$id_bd . ' = ' . $id);
+        $stmt->execute([$_POST['val']]);
+
+        $result = $db->query('SELECT ' . $_POST['id_note'] . ' FROM ' . self::$name_bd . ' WHERE id_' . self::$id_bd . ' = ' . $id);
+        while($row = $result->fetch()) {
+            echo $row[0];
+        }
 
     }
 
