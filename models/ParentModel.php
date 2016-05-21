@@ -162,11 +162,18 @@ class ParentModel
         $stmt = $db->prepare('UPDATE ' . self::$name_bd . ' SET ' . $_POST['id_note'] . '=? WHERE id_' . self::$id_bd . ' = ' . $id);
         $stmt->execute([$_POST['val']]);
 
-        $result = $db->query('SELECT ' . $_POST['id_note'] . ' FROM ' . self::$name_bd . ' WHERE id_' . self::$id_bd . ' = ' . $id);
+        $result = $db->query('SELECT * FROM ' . self::$name_bd . ' WHERE id_' . self::$id_bd . ' = ' . $id);
         while($row = $result->fetch()) {
-            echo $row[0];
-        }
+            if ((($row['finish'] / $row['total']) == 1) || ($_POST['id_note']) == 'end_date') {
+                $stmt = $db->prepare('UPDATE ' . self::$name_bd . ' SET finished=1, end_date=? WHERE id_' . self::$id_bd . ' = ' . $id);
+                $stmt->execute([date('Y-m-d')]);
+            }
 
+            if ( ( $_POST['id_note'] == 'finish' ) && $row['start_date'] == '0000-00-00' ) {
+                $stmt = $db->prepare('UPDATE ' . self::$name_bd . ' SET start_date=? WHERE id_' . self::$id_bd . ' = ' . $id);
+                $stmt->execute([date('Y-m-d')]);
+            }
+        }
     }
 
     public static function getDelete($id)

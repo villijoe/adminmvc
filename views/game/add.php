@@ -5,11 +5,11 @@
     <p>Название игры:</p>
     <input type="text" name="title" id="title" autofocus />
     <p>Имя компании:</p>
-    <input type="text" name="company" id="company" />
+    <input type="text" name="creator" id="company" />
     <p>Общее кол. страниц:</p>
-    <input type="number" name="total_chapters" id="total_chapters" />
+    <input type="number" name="total" id="total_chapters" />
     <p>Количество прочитанных страниц:</p>
-    <input type="number" name="finished_chapters" id="finished_chapters" />
+    <input type="number" name="finish" id="finished_chapters" />
     <p>Start Date:</p>
     <input type="date" name="start_date" id="start_date" />
     <p>End Date:</p>

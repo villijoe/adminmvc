@@ -10,13 +10,15 @@
         <td id="head">X</td>
     </tr>
     <?php foreach ($list as $item):?>
-        <?php $p = round($item['finish']/$item['total']*100); ?>
-    <?php $item['finished'] ? $style = 'red' : $style = 'green'; ?>
-    <tr id="<?php echo $item['id_book']; ?>" class="<?php echo $style; ?>"
-        style="background-size: 100%;
-            /*background-image: linear-gradient(to right, #FF6D6D, #FF6D6D <?php echo $p; ?>%,  #72F48E <?php echo $p; ?>%, #72F48E);*/
-            background-image: linear-gradient(#FF6D6D, #FF6D6D <?php echo $p; ?>%,  #72F48E <?php echo $p; ?>%, #72F48E);
-            ">
+
+        <?php
+        $p = round($item['finish']/$item['total']*100);
+        $item['finished'] ? $style = 'red' : $style = 'green';
+        $item['finished'] ? $grad = '' : $grad = "background-image: linear-gradient(#FF6D6D $p%,  #72F48E $p%, #72F48E);";
+        ?>
+
+    <tr id="<?php echo $item['id_book']; ?>" class="<?php echo $style; ?>" style="<?php echo $grad ?>">
+
         <td id="title"><a href="<?php echo 'http://127.0.0.1/adminmvc/books/' . $item['id_book']; ?>"><?php echo $item['title']; ?></a></td>
         <td id="creator"><?php echo $item['creator']; ?></td>
         <td id="finish"><?php echo $item['finish']; ?></td>
@@ -25,30 +27,15 @@
         <td id="end_date"><?php echo $item['end_date']; ?></td>
         <td id="edit"><a href="<?php echo 'http://127.0.0.1/adminmvc/books/edit/' . $item['id_book']; ?>">A</a></td>
         <td id="delete"><a href="<?php echo 'http://127.0.0.1/adminmvc/books/delete/' . $item['id_book']; ?>">X</a></td>
+
     </tr>
+
     <?php endforeach;?>
 </table>
 
-<?php foreach ($list as $item):?>
-    <?php $p = round($item['finish']/$item['total']*100); ?>
-    <?php $item['finished'] ? $style = 'red' : $style = 'green'; ?>
-    <div id="<?php echo $item['id_book']; ?>" class="<?php echo $style; ?> table"
-    style="background-image: linear-gradient(to right, #FF6D6D, #FF6D6D <?php echo $p; ?>%,  #72F48E <?php echo $p; ?>%, #72F48E);">
-        <div id="title" class="field"><a href="<?php echo 'http://127.0.0.1/adminmvc/books/' . $item['id_book']; ?>"><?php echo $item['title']; ?></a></div>
-        <div id="creator" class="field"><?php echo $item['creator']; ?></div>
-        <div id="finish" class="field"><?php echo $item['finish']; ?></div>
-        <div id="total" class="field"><?php echo $item['total']; ?></div>
-        <div id="start_date" class="field"><?php echo $item['start_date']; ?></div>
-        <div id="end_date" class="field"><?php echo $item['end_date']; ?></div>
-        <div id="edit" class="field"><a href="<?php echo 'http://127.0.0.1/adminmvc/books/edit/' . $item['id_book']; ?>">A</a></div>
-        <div id="delete" class="field"><a href="<?php echo 'http://127.0.0.1/adminmvc/books/delete/' . $item['id_book']; ?>">X</a></div>
-    </div>
-<?php endforeach;?>
-
-
 <script>
     "use strict";
-    console.log($("tr[class='green']").children("td").not("#edit, #delete"));
+
     function edit() {
         $("tr[class='green']").children("td").not("#edit, #delete").bind( 'dblclick', 'td', function () {
             $("td").unbind();
@@ -57,7 +44,7 @@
             let text = $(this).text();
             $(this).empty();
             $(this).css('padding', '0px 0px');
-            console.log($(this).attr('id'));
+            //console.log($(this).attr('id'));
             if ( $(this).attr('id') === 'start_date' || $(this).attr('id') === 'end_date'){
                 $(this).append("<input type='date' id='input' value='" + text + "' autofocus />");
             } else {
@@ -72,11 +59,7 @@
                         dataType: 'html'
                     });
                     request.done(function (msg) {
-                        let td = $("#input").parent();
-                        td.empty();
-                        td.css('padding', '7px');
-                        td.text(msg);
-                        edit();
+                        location.reload();
                     });
                     request.fail(function (jqXHR, textStatus) {
                         console.log("Request failed: " + textStatus);

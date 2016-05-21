@@ -3,7 +3,6 @@
 /**
  * Class ParentController
  */
-
 class ParentController
 {
     protected $model_name;
@@ -17,7 +16,7 @@ class ParentController
 
     public function actionIndex()
     {
-        $this->list = array();
+        $list = array();
         $method_name = 'getList';
         $list = call_user_func($this->model_name . '::' . $method_name);
 
@@ -47,6 +46,7 @@ class ParentController
 
         return true;
     }
+
     public function actionProcess()
     {
         $method_name = 'get' . str_replace('action', '', __FUNCTION__);
